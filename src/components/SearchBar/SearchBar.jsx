@@ -23,8 +23,9 @@ const SearchBar = () => {
               id="exampleSelect"
               name="select"
               type="select"
+              defaultValue={"Meal Type"}
             >
-              <option disabled selected>
+              <option disabled>
                 Meal Type
               </option>
               <option>
