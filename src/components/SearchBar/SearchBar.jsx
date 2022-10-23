@@ -1,12 +1,22 @@
 import React from 'react'
 import {Input, Button, Container, Row, Col} from 'reactstrap'
 
-const SearchBar = () => {
+const SearchBar = ({getData,setQuery, setMeal, recipe}) => {
+	let searchQuery = ""
+	let mealType=""
+	const submitForm = (e) => {	
+		searchQuery = document.querySelector(".query").value
+		mealType = document.querySelector(".type").value
+		setQuery(searchQuery);
+		setMeal(mealType)
+		getData();
+	}
+
   return (
     <Container>
       <Row>
           <Col>
-              <Input
+              <Input className='query'
                 id="exampleSearch"
                 name="search"
                 placeholder="Search"
@@ -14,12 +24,14 @@ const SearchBar = () => {
               />
           </Col>
           <Col>
-          <Button className='col-2'>
+          <Button className='col-2'
+		  onClick={submitForm}>
             Search
           </Button>
           </Col>
           <Col>
           <Input 
+		      className='type'
               id="exampleSelect"
               name="select"
               type="select"
@@ -28,17 +40,17 @@ const SearchBar = () => {
               <option disabled>
                 Meal Type
               </option>
-              <option>
-                2
+              <option value="breakfast">
+                Breakfast
               </option>
-              <option>
-                3
+              <option value="lunch">
+                Lunch
               </option>
-              <option>
-                4
+              <option  value="snack">
+                Dinner
               </option>
-              <option>
-                5
+              <option  value="snack">
+                Snack
               </option>
             </Input>
           </Col>
