@@ -11,6 +11,7 @@ const SearchBar = ({getData,setQuery, setMeal, recipe}) => {
 		setMeal(mealType)
 		getData();
 	}
+  console.log(setMeal, "meal set")
 
   return (
     <Container>

@@ -1,8 +1,16 @@
 import './LoginSection.scss'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
-import { } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const LoginSection = () => {
+const LoginSection = ({setLogin, loggedIn}) => {
+  const navigate = useNavigate();
+  console.log(loggedIn, "function")
+
+
+   const changeLogin = () => {
+    console.log(loggedIn, "function")
+    navigate("./home", {state:{loggedIn}})
+   }
   return (
     <div className='login-section'>
       <Form>
@@ -36,7 +44,9 @@ const LoginSection = () => {
     />
   </FormGroup>
   {' '}
-  <Button color="primary" href="/home">Login</Button>
+  <Button color="primary" href="/home"
+  onClick={changeLogin}
+  >Login</Button>
 </Form>
     </div>
   )
