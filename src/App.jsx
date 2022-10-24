@@ -5,16 +5,16 @@ import { useState } from 'react';
 
 
 function App() {
-  const [login, setLogin] = useState(false)
+  const [loggedIn, setLogin] = useState(false)
 
   return (
     <>
     <BrowserBar/>
     <Routes>
-      <Route path='/login' element={<LoginPage loggedIn={login} setLogin={setLogin}/>}/>
+      <Route path='/login' element={<LoginPage loggedIn={loggedIn}/>}/>
       <Route path='/' element={<HomePage/>}/>
-      <Route path='/home'  element={<HomePage loggedIn={login}/>}/>
-      <Route path='/about' element={<AboutPage/>}/>
+      <Route path='/home'  element={<HomePage loggedIn={loggedIn}/>}/>
+      <Route path='/about' element={<AboutPage loggedIn={loggedIn}/>}/>
       <Route path='/recipie' element={<RecipePage/>}/>
     </Routes>
     </>
