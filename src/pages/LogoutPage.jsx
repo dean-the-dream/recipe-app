@@ -1,11 +1,12 @@
 import { Row, Card, Col, CardTitle, CardText, Container, Button} from "reactstrap"
+import { Link } from "react-router-dom"
 
 
 const LogoutPage = () => {
   return (
-    <Container color="dark">
+    <Container color="dark" className = "mt-5">
       <Row>
-  <Col sm="6">
+  <Col sm="12">
     <Card body>
       <CardTitle tag="h5">
         You are not logged in.
@@ -13,22 +14,9 @@ const LogoutPage = () => {
       <CardText>
         With supporting text below as a natural lead-in to additional content.
       </CardText>
-      <Button>
+     <Link to="/login"><Button>
         Login Again?
-      </Button>
-    </Card>
-  </Col>
-  <Col sm="6">
-    <Card body>
-      <CardTitle tag="h5">
-        Special Title Treatment
-      </CardTitle>
-      <CardText>
-        With supporting text below as a natural lead-in to additional content.
-      </CardText>
-      <Button>
-        Go somewhere
-      </Button>
+      </Button></Link> 
     </Card>
   </Col>
 </Row>  
