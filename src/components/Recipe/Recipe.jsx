@@ -1,5 +1,6 @@
 import { Card, CardBody, CardText, CardSubtitle, CardTitle, Button, Col } from "reactstrap"
 import { useNavigate, useLocation } from "react-router-dom";
+import './Recipe.scss'
 
 
 const Recipe = ({recipeData}) => {
@@ -7,10 +8,14 @@ const Recipe = ({recipeData}) => {
   const{label, image, dishType, cuisineType} = recipeData;
   const navigate = useNavigate()
   const location = useLocation
+  const truncate = (str, n) => {
+      return (str.length > n) ? (str.slice(0, n-1)).trim() + '...' : str;
+  }
   // console.log(image)
 
   return (
-    <Col xs="12" sm="6" md="3" >
+    
+    <Col>
     <Card
   style={{
     width: '18rem'
@@ -22,15 +27,16 @@ const Recipe = ({recipeData}) => {
     src={image}
     
   />
+
   <CardBody>
     <CardTitle tag="h5">
-      {label}
+      {truncate(label, 19)}
     </CardTitle>
     <CardSubtitle
       className="mb-2 text-muted"
       tag="h6"
     >
-      {`${dishType} - ${cuisineType}`}
+      {truncate(`${dishType} - ${cuisineType}`, 30)}
     </CardSubtitle>
     {/* <CardText>
       Some quick example text to build on the card title and make up the bulk of the card‘s content.
@@ -41,8 +47,11 @@ const Recipe = ({recipeData}) => {
       Details
     </Button>
   </CardBody>
+
 </Card>
     </Col>
+    
+
 
   )
 }

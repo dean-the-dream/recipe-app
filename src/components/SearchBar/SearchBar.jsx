@@ -1,23 +1,16 @@
-import React from 'react'
-import {Input, Button, Container, Row, Col} from 'reactstrap'
+import "./SearchBar.scss"
+import {Input, Button, Container, Row, Col, FormFeedback, FormGroup, Form} from 'reactstrap'
 
-const SearchBar = ({getData,setQuery, setMeal, recipe}) => {
-	let searchQuery = ""
-	let mealType=""
-	const submitForm = (e) => {	
-		searchQuery = document.querySelector(".query").value
-		mealType = document.querySelector(".type").value
-		setQuery(searchQuery);
-		setMeal(mealType)
-		getData();
-	}
-  console.log(setMeal, "meal set")
+const SearchBar = ({handleSearchClick, validInput}) => {
+	
+  
 
   return (
-    <Container>
-      <Row>
+    <Form>
+      <Container>
+        <Row>
           <Col>
-              <Input className='query'
+                  <Input className='query'
                 id="exampleSearch"
                 name="search"
                 placeholder="Search"
@@ -25,20 +18,21 @@ const SearchBar = ({getData,setQuery, setMeal, recipe}) => {
               />
           </Col>
           <Col>
-          <Button className='col-2'
-		  onClick={submitForm}>
+                    <Button className='col-2'
+          onClick={() => handleSearchClick(document.querySelector(".query").value, document.querySelector(".type").value)}>
             Search
           </Button>
           </Col>
           <Col>
-          <Input 
+          <FormGroup>
+          {validInput ? <Input 
 		      className='type'
               id="exampleSelect"
               name="select"
               type="select"
               defaultValue={"Meal Type"}
             >
-              <option disabled>
+              <option defaultValue disabled>
                 Meal Type
               </option>
               <option value="breakfast">
@@ -47,18 +41,50 @@ const SearchBar = ({getData,setQuery, setMeal, recipe}) => {
               <option value="lunch">
                 Lunch
               </option>
-              <option  value="snack">
+              <option  value="Dinner">
                 Dinner
               </option>
               <option  value="snack">
                 Snack
               </option>
-            </Input>
+            </Input> : <Input 
+		      className='type'
+              id="exampleSelect"
+              name="select"
+              type="select"
+              defaultValue={"Meal Type"}
+              invalid
+            >
+              <option defaultValue disabled>
+                Meal Type
+              </option>
+              <option value="breakfast">
+                Breakfast
+              </option>
+              <option value="lunch">
+                Lunch
+              </option>
+              <option  value="Dinner">
+                Dinner
+              </option>
+              <option  value="snack">
+                Snack
+              </option>
+            </Input>} 
+          
+            {!validInput && <FormFeedback tooltip>
+            Please Choose A Meal Type!
+            </FormFeedback>}
+            
+          </FormGroup>
           </Col>
 
-  
-  </Row>
-    </Container>
+
+
+        </Row>
+      </Container>
+              
+    </Form>
   )
 }
 

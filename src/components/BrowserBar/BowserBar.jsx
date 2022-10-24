@@ -1,19 +1,16 @@
 import {Navbar, NavbarBrand, Nav, Button} from "reactstrap"
-import { Link, useNavigate} from "react-router-dom"
+import { Link} from "react-router-dom"
 import './BrowserBar.scss'
 import logo from '../../img/pngegg.png'
 
 const BrowserBar = () => {
-  const navigate = useNavigate();
   return (
-  <Navbar className="me-2" color="dark" dark>
-    <Link to="/">
-    <NavbarBrand >
+  <Navbar className="" color="dark" dark >
+    <NavbarBrand href="/home">
       <img alt="logo" style={{height: 40, width: 40}}
         src={logo}/>
       Recipe App
     </NavbarBrand>
-    </Link>
     <Nav fill pills>
 <ul>
   <li><Link to='/about'>About</Link></li>

@@ -2,7 +2,7 @@ import { Container, Row, Col } from "reactstrap"
 
 const NutrientsContainer = (nutrients) => {
     const nutrientsList=Object.entries(nutrients.nutrients)
-    console.log(nutrientsList)
+    // console.log(nutrientsList)
   return (
     <Container>
         <Row className="d-flex flex-column">

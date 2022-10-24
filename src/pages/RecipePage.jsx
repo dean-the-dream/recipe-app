@@ -6,11 +6,11 @@ import { useLocation } from 'react-router-dom'
 const RecipePage = () => {
   
   const location = useLocation();
-  // console.log(location.state.recipeData.totalNutrients)
+  // console.log(location.state.recipeData.label)
   return (
     <>
     
-    <h2>Place Holder Title</h2>
+    <p className='h1 text-center'>{location.state.recipeData.label}</p>
     <Card>
       <CardBody>
         <Container>

@@ -1,4 +1,4 @@
-import { useState,useEffect} from 'react'
+import { useState, useEffect, useRef} from 'react'
 import './HomePage.scss'
 import {RecipeContainer, SearchBar} from '../../components'
 import { useNavigate, useLocation } from 'react-router-dom'
@@ -9,28 +9,42 @@ const APP_KEY = '14781fb3ae1f72b0c5fbd53343415003'
 
 
 const HomePage = ({props}) => {
-  const location = useLocation();
-  let [recipes, getRecipes] = useState ([]);
-  const [query, setQuery] = useState("eggs")
-  const [meal, setMeal] = useState("breakfast")
-  // const {login} = props;
+	const location = useLocation();
+	let [recipes, getRecipes] = useState ([]);
+	const [query, setQuery] = useState("")
+	const [meal, setMeal] = useState("")
+	const [validInput, setValidInput] = useState(true)
+	const isMounted = useRef(false);
+		
   
+  	const getData = async () => {
+		await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`)
+		.then(res => res.json())
+		.then(data  => getRecipes(data.hits))
+	}
 
-   const getData = async () => {
-    await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${meal}`)
-    .then(res => res.json())
-    .then(data  => getRecipes(data.hits))
-    // .catch(error => console.error("this is an error", error))
-    
-   }
+	const handleSearchClick = (mealSearh, typeSelect) => {
+		if((typeSelect !="Meal Type") ){
+			setQuery(mealSearh);
+			setMeal(typeSelect);
+			setValidInput(true)
+		} else {
+			setValidInput(false)
+		}
+		
+	
+	}
 
+  useEffect(() =>{
+	if(isMounted.current){
+		getData()
+		console.log(recipes)
+	} else {
+		isMounted.current = true
+	}
 
-  // useEffect(() =>{
-  //  getData()
-  // }, [])
+  }, [meal, query])
   
-  // console.log(recipes, "recipe object")
-  console.log(location, "state")
 
 
 
@@ -41,7 +55,7 @@ const HomePage = ({props}) => {
        <h1>Recipe App</h1>
       : <>
       <h1>Recipe App</h1>
-      <SearchBar getData={getData} setQuery={setQuery} setMeal={setMeal} recipe={recipes}/>  
+      <SearchBar {...{handleSearchClick, validInput}}/>  
       <RecipeContainer recipes={recipes}/>
       </>}
       
