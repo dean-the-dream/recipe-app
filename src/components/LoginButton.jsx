@@ -1,10 +1,16 @@
 import { Button } from "reactstrap"
-const LoginButton = ({type, path}) => {
+import { Link } from "react-router-dom"
+const LoginButton = ({type, path, setLogin}) => {
   return ( 
-  <Button color="primary" href={path}
+  path=="/login" ?  <Link to={path}><Button color="primary"
                     // onClick={changeLogin}
-                    >Login</Button>
+                    >Login</Button></Link>
+                    :
+                    <Link to="/home"><Button color="primary"
+                    onClick={()=> setLogin(true)}
+                    >Login</Button></Link>
   ) 
+              
 }
 
 export default LoginButton

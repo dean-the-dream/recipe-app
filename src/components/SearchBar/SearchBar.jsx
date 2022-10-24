@@ -18,7 +18,7 @@ const SearchBar = ({handleSearchClick, validInput}) => {
               />
           </Col>
           <Col>
-                    <Button className='col-2'
+                    <Button
           onClick={() => handleSearchClick(document.querySelector(".query").value, document.querySelector(".type").value)}>
             Search
           </Button>

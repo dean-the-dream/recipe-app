@@ -1,8 +1,9 @@
 import { Button } from "reactstrap"
+import { Link } from "react-router-dom"
 
-const LogoutButton = ({type, path}) => {
+const LogoutButton = ({type, path, logout}) => {
     return ( 
-    <Button color="primary" href="./loggedout">Login</Button>
+    <Link to="/loggedout"><Button color="primary" onClick={()=>logout(false)}>Logout</Button></Link>
     ) 
   }
 

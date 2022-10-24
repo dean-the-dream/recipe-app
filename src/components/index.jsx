@@ -8,5 +8,6 @@ import LoginSection from './LoginSection/LoginSection'
 import SearchBar from './SearchBar/SearchBar'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
+import LoggedOutMessage from './LoggedOut Message'
 
-export {IngredientsContainer, NutrientsContainer, RecipeContainer, Recipe, PhotoContainer, NavigationBar, LoginSection, SearchBar, LoginButton, LogoutButton}
+export {IngredientsContainer, NutrientsContainer, RecipeContainer, Recipe, PhotoContainer, NavigationBar, LoginSection, SearchBar, LoginButton, LogoutButton, LoggedOutMessage}

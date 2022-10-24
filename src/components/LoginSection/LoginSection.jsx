@@ -5,13 +5,9 @@ import LoginButton from '../LoginButton'
 
 const LoginSection = ({setLogin, loggedIn}) => {
   const navigate = useNavigate();
-  console.log(loggedIn, "function")
+  // console.log(loggedIn, "function")
 
 
-   const changeLogin = () => {
-    console.log(loggedIn, "function")
-    navigate("./home", {state:{loggedIn}})
-   }
   return (
     <div className='login-section'>
       <Form>
@@ -45,7 +41,7 @@ const LoginSection = ({setLogin, loggedIn}) => {
     />
   </FormGroup>
   {' '}
-  <LoginButton/>
+  <LoginButton path={"/home"} setLogin={setLogin}/>
 </Form>
     </div>
   )

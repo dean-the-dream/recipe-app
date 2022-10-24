@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef} from 'react'
 import './HomePage.scss'
-import {RecipeContainer, SearchBar} from '../../components'
+import {RecipeContainer, SearchBar, LoggedOutMessage} from '../../components'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 const APP_ID = "b4bcbc94"
@@ -8,7 +8,7 @@ const APP_KEY = '14781fb3ae1f72b0c5fbd53343415003'
 
 
 
-const HomePage = ({props}) => {
+const HomePage = ({logIn}) => {
 	const location = useLocation();
 	let [recipes, getRecipes] = useState ([]);
 	const [query, setQuery] = useState("")
@@ -46,21 +46,18 @@ const HomePage = ({props}) => {
   }, [meal, query])
   
 
-
+console.log(logIn)
 
   return (
 
-    <div className='main'>
-      {!true? 
-       <h1>Recipe App</h1>
-      : <>
+    logIn ? <div className='main'>
       <h1>Recipe App</h1>
       <SearchBar {...{handleSearchClick, validInput}}/>  
       <RecipeContainer recipes={recipes}/>
-      </>}
-      
     </div>
+	: <LoggedOutMessage/>
   )
 }
+
 
 export default HomePage
