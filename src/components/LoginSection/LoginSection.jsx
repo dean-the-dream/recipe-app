@@ -1,6 +1,7 @@
 import './LoginSection.scss'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
+import LoginButton from '../LoginButton'
 
 const LoginSection = ({setLogin, loggedIn}) => {
   const navigate = useNavigate();
@@ -44,9 +45,7 @@ const LoginSection = ({setLogin, loggedIn}) => {
     />
   </FormGroup>
   {' '}
-  <Button color="primary" href="/home"
-  onClick={changeLogin}
-  >Login</Button>
+  <LoginButton/>
 </Form>
     </div>
   )

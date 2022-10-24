@@ -1,9 +1,10 @@
-import {Navbar, NavbarBrand, Nav, Button} from "reactstrap"
+import {Navbar, NavbarBrand, Nav} from "reactstrap"
 import { Link} from "react-router-dom"
 import './BrowserBar.scss'
 import logo from '../../img/pngegg.png'
+import {LoginButton} from "../../components"
 
-const BrowserBar = () => {
+const NavigationBar = ({logInOrOut, loggedIn}) => {
   return (
   <Navbar className="" color="dark" dark >
     <NavbarBrand href="/home">
@@ -15,11 +16,12 @@ const BrowserBar = () => {
 <ul>
   <li><Link to='/about'>About</Link></li>
   <li><Link className="nav-link" onClick={() => window.location.href ="https://github.com/dean-the-dream"}>GitHub</Link></li>
-  <li><Button color="primary" href="/login">Login</Button></li>
+  {/* <li> {!loggedIn ? <LoginButton path="/login" onClick={()=> {logInOrOut()}}/>:<LogoutButton onClick={()=> {logInOrOut()}} />}</li> */}
+  <li> <LoginButton type="nav" path="./login"/></li>
 </ul>
     </Nav>
   </Navbar>
   )
 }
 
-export default BrowserBar
+export default NavigationBar

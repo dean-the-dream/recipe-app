@@ -24,7 +24,7 @@ const HomePage = ({props}) => {
 	}
 
 	const handleSearchClick = (mealSearh, typeSelect) => {
-		if((typeSelect !="Meal Type") ){
+		if((typeSelect !== "Meal Type") ){
 			setQuery(mealSearh);
 			setMeal(typeSelect);
 			setValidInput(true)
