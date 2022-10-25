@@ -12,11 +12,6 @@ function App() {
     console.log("I ran")
     console.log(x)
   }
- console.log(loggedIn, "loggedIn Value")
-//   useEffect(() => 
-//   {
-//     logInOrOut(loggedIn)
-// }, [loggedIn])
 
   return (
     <>

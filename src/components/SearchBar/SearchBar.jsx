@@ -1,7 +1,7 @@
 import "./SearchBar.scss"
 import {Input, Button, Container, Row, Col, FormFeedback, FormGroup, Form} from 'reactstrap'
 
-const SearchBar = ({handleSearchClick, validInput}) => {
+const SearchBar = ({handleSearchClick, validInput, handleInputClick}) => {
 	
   
 
@@ -23,7 +23,7 @@ const SearchBar = ({handleSearchClick, validInput}) => {
             Search
           </Button>
           </Col>
-          <Col>
+          <Col >
           <FormGroup>
           {validInput ? <Input 
 		      className='type'
@@ -35,7 +35,8 @@ const SearchBar = ({handleSearchClick, validInput}) => {
               <option defaultValue disabled>
                 Meal Type
               </option>
-              <option value="breakfast">
+            
+              <option onClick={() => handleInputClick()} value="breakfast">
                 Breakfast
               </option>
               <option value="lunch">
@@ -47,8 +48,9 @@ const SearchBar = ({handleSearchClick, validInput}) => {
               <option  value="snack">
                 Snack
               </option>
-            </Input> : <Input 
-		      className='type'
+              
+            </Input> :<><Input 
+		      className='type mb-0'
               id="exampleSelect"
               name="select"
               type="select"
@@ -70,11 +72,13 @@ const SearchBar = ({handleSearchClick, validInput}) => {
               <option  value="snack">
                 Snack
               </option>
-            </Input>} 
-          
-            {!validInput && <FormFeedback tooltip>
+            </Input>
+            <FormFeedback tooltip>
             Please Choose A Meal Type!
-            </FormFeedback>}
+            </FormFeedback>
+            </> 
+            } 
+             
             
           </FormGroup>
           </Col>

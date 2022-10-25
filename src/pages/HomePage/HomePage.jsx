@@ -3,8 +3,8 @@ import './HomePage.scss'
 import {RecipeContainer, SearchBar, LoggedOutMessage} from '../../components'
 import { useNavigate, useLocation } from 'react-router-dom'
 
-const APP_ID = "b4bcbc94"
-const APP_KEY = '14781fb3ae1f72b0c5fbd53343415003'
+const APP_ID = process.env.REACT_APP_ID
+const APP_KEY = process.env.REACT_APP_KEY
 
 
 
@@ -31,14 +31,17 @@ const HomePage = ({logIn}) => {
 		} else {
 			setValidInput(false)
 		}
-		
-	
+
 	}
 
+	const handleInputClick = () => {
+		setValidInput(true)
+		console.log("valid input")
+	}
+		
   useEffect(() =>{
 	if(isMounted.current){
 		getData()
-		console.log(recipes)
 	} else {
 		isMounted.current = true
 	}
@@ -46,13 +49,11 @@ const HomePage = ({logIn}) => {
   }, [meal, query])
   
 
-console.log(logIn)
-
   return (
 
     logIn ? <div className='main'>
       <h1>Recipe App</h1>
-      <SearchBar {...{handleSearchClick, validInput}}/>  
+      <SearchBar {...{handleSearchClick, validInput, handleInputClick}}/>  
       <RecipeContainer recipes={recipes}/>
     </div>
 	: <LoggedOutMessage/>
