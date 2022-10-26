@@ -1,3 +1,4 @@
+
 import { Card, CardBody, CardText, CardSubtitle, CardTitle, Button, Col } from "reactstrap"
 import { useNavigate, useLocation } from "react-router-dom";
 import './Recipe.scss'
@@ -21,6 +22,7 @@ const Recipe = ({recipeData}) => {
     width: '18rem'
   }}
   color="dark"
+  className="recipe-card"
 >
   <img
     alt={`A picture of ${label}`}
@@ -28,7 +30,7 @@ const Recipe = ({recipeData}) => {
     
   />
 
-  <CardBody>
+  <CardBody >
     <CardTitle tag="h5">
       {truncate(label, 19)}
     </CardTitle>

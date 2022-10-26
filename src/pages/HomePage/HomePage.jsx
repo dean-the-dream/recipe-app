@@ -32,6 +32,7 @@ const HomePage = ({logIn}) => {
 			setValidInput(false)
 		}
 
+
 	}
 
 	const handleInputClick = () => {

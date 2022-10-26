@@ -6,7 +6,7 @@ import { useState, useEffect, useRef} from 'react';
 
 function App() {
   const isCurrent = useRef(false)
-  const [loggedIn, setLogin] = useState(false)
+  const [loggedIn, setLogin] = useState(true)
   const logInOrOut = (x) => {
     setLogin(x)
     console.log("I ran")

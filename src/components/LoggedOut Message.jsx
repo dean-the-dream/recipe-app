@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 
 const LoggedOutMessage = () => {
   return (
-    <Container color="dark">
-      <Row>
+    <Container color="dark" className="d-flex align-content-center h-100">
+      <Row> 
   <Col sm="6">
     <Card body>
       <CardTitle tag="h5">

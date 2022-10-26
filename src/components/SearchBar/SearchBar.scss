@@ -1,3 +1,17 @@
-#root > div > form > div{
+.select-input{
     position: relative;
+}
+
+.invalid-tooltip {
+    margin-top: -0.8rem !important;
+  }
+
+.form-align{
+   display: flex;
+   width: 50%; 
+}
+
+.formwrapper{
+    display: flex;
+    justify-content: center;
 }
