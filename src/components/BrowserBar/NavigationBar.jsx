@@ -8,11 +8,11 @@ const NavigationBar = ({logInOrOut, loggedIn}) => {
   const navigate = useNavigate()
 
   return (
-  <Navbar className="" color="dark" dark >
+  <Navbar  color="dark" dark>
 
-    <NavbarBrand onClick={() => navigate("/")}>
-      <img alt="logo" style={{height: 40, width: 40}}
-        src={logo}/>
+    <NavbarBrand onClick={() => navigate("/")} className="pointer">
+      <img alt="logo" style={{height: 50, width: 50}}
+        src={logo} />
       Recipe App
     </NavbarBrand>
    

@@ -4,4 +4,35 @@ ul {
   align-items: center;
 }
 
+.pointer{
+  cursor: pointer;
+}
 
+.navbar{
+  height: 100px;
+}
+
+.navbar-brand{
+  font-size: 2rem !important;
+   img{
+    margin-right: 20px;
+  }
+}
+ul li{
+  font-size: 1.25rem !important;
+  font-weight: bold;
+  list-style: none;
+  a{
+  text-decoration: none;
+  color: white;
+  }
+  a:visited{
+  text-decoration: none;
+  color: white;
+  }
+  a:hover{
+  text-decoration: none;
+  color: white !important;
+  }
+  
+}
