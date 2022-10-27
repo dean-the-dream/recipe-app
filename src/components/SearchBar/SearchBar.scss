@@ -14,4 +14,11 @@
 .formwrapper{
     display: flex;
     justify-content: center;
+    margin-top: 75px;
+}
+
+#exampleSearch, #exampleSelect{
+    width: 250px;
+    text-align: center;
+    margin: 0 10px;
 }

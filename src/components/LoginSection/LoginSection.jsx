@@ -2,6 +2,7 @@ import './LoginSection.scss'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
 import LoginButton from '../LoginButton'
+import logo from '../../assets/pngegg.png'
 
 const LoginSection = ({setLogin, loggedIn}) => {
   const navigate = useNavigate();
@@ -10,6 +11,9 @@ const LoginSection = ({setLogin, loggedIn}) => {
 
   return (
     <div className='login-section'>
+
+      <h1>Recipe App</h1>
+      <img src={logo} alt="" />
       <Form>
   <FormGroup>
     <Label

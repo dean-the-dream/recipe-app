@@ -1,0 +1,35 @@
+.about-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-areas: 
+    "top-left top-right"
+    "top-left  top-right"
+    "middle-left middle-right"
+    "bottom bottom"
+}
+
+
+.child-1{
+ grid-area: top-right;
+ outline: solid 4px red;   
+}
+ 
+.child-2{
+     grid-area: top-left
+}
+
+.child-3{
+   grid-area: middle-left 
+}
+
+.child-4{
+    grid-area: middle-right 
+}
+
+.child-5{
+grid-area: bottom;
+outline: red
+ 1px solid
+}
+
