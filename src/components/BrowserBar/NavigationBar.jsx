@@ -1,12 +1,15 @@
-import {Navbar, NavbarBrand, Nav} from "reactstrap"
+import {Navbar, NavbarBrand, Nav, Button} from "reactstrap"
 import { Link, useNavigate} from "react-router-dom"
 import './BrowserBar.scss'
 import logo from '../../assets/pngegg.png'
-import {LoginButton, LogoutButton} from "../../components"
+import { LoggedInContext } from "../../contexts/LoggedInContext";
+import { useContext } from "react"
 
-const NavigationBar = ({logInOrOut, loggedIn}) => {
+const NavigationBar = () => {
   const navigate = useNavigate()
-
+  const context = useContext(LoggedInContext)
+  console.log(context.isLoggedIn)
+  
   return (
   <Navbar  color="dark" dark>
 
@@ -22,7 +25,7 @@ const NavigationBar = ({logInOrOut, loggedIn}) => {
   <li><Link to='/about'>About</Link></li>
   <li><a className="nav-link" href ="https://github.com/dean-the-dream" target="_blank" rel="noreferrer">GitHub</a></li>
   <li> 
-   {loggedIn ? <LogoutButton logout={logInOrOut}/>:<LoginButton type="nav" path="/login"/> }
+   {!context.isLoggedIn && <Button onClick={() => navigate("/login")}>Login</Button>}
   </li>
 </ul>
     </Nav>

@@ -5,11 +5,15 @@ import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
+import LoggedInContextProvider from './contexts/LoggedInContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
+  <LoggedInContextProvider>
+    <Router>
     <App />
   </Router>
+  </LoggedInContextProvider>
+  
 );

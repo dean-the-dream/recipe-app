@@ -2,7 +2,6 @@ import {Routes, Route} from 'react-router-dom';
 import {NavigationBar} from './components';
 import {AboutPage, HomePage, LoginPage, RecipePage, LogoutPage} from "./pages"
 import { useState, useEffect, useRef} from 'react';
-import ThemeContextProvider from './contexts/ThemeContext'
 
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
 
   return (
     <>
-    <ThemeContextProvider>
+  
       <NavigationBar {...{logInOrOut, loggedIn}}/>
   
       <Routes>
@@ -27,7 +26,7 @@ function App() {
       <Route path='/recipie' element={<RecipePage/>}/>
       <Route path='/loggedout' element={<LogoutPage/>}/>
     </Routes>
-    </ThemeContextProvider>
+    
     
     </>
   )
