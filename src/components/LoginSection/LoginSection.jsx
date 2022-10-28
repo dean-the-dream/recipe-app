@@ -1,11 +1,19 @@
 import './LoginSection.scss'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import { useNavigate } from 'react-router-dom'
-import LoginButton from '../LoginButton'
+import { useContext } from 'react'
 import logo from '../../assets/pngegg.png'
+import { LoggedInContext } from '../../contexts/LoggedInContext'
 
 const LoginSection = ({setLogin, loggedIn}) => {
   const navigate = useNavigate();
+  const context = useContext(LoggedInContext);
+  const clickLogIn = () => {
+    navigate("/")
+    context.toggleLoggedIn();
+
+
+  }
   // console.log(loggedIn, "function")
 
 
@@ -45,7 +53,7 @@ const LoginSection = ({setLogin, loggedIn}) => {
     />
   </FormGroup>
   {' '}
-  <LoginButton path={"/home"} setLogin={setLogin}/>
+  <Button onClick={() => clickLogIn()}>Login</Button>
 </Form>
     </div>
   )

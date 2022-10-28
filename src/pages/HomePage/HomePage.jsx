@@ -1,20 +1,23 @@
 import { useState, useEffect, useRef} from 'react'
 import './HomePage.scss'
 import {RecipeContainer, SearchBar, LoggedOutMessage} from '../../components'
-import {useLocation } from 'react-router-dom'
+import { useContext } from 'react'
+import { LoggedInContext } from '../../contexts/LoggedInContext'
 
 const APP_ID = process.env.REACT_APP_ID
 const APP_KEY = process.env.REACT_APP_KEY
 
 
 
-const HomePage = ({logIn}) => {
+
+const HomePage = () => {
 
 	let [recipes, getRecipes] = useState ([]);
 	const [query, setQuery] = useState("")
 	const [meal, setMeal] = useState("")
 	const [validInput, setValidInput] = useState(true)
 	const isMounted = useRef(false);
+	const context = useContext(LoggedInContext);
 		
   
   	const getData = async () => {
@@ -52,7 +55,7 @@ const HomePage = ({logIn}) => {
 
   return (
 
-    logIn ? <div className='main'>
+    context.isLoggedIn ? <div className='main'>
       <SearchBar {...{handleSearchClick, validInput, handleInputClick}}/>  
       <RecipeContainer recipes={recipes}/>
     </div>

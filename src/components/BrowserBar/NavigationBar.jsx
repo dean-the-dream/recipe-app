@@ -9,7 +9,11 @@ const NavigationBar = () => {
   const navigate = useNavigate()
   const context = useContext(LoggedInContext)
   console.log(context.isLoggedIn)
-  
+  const clickLogOut = () => {
+    navigate("/loggedOut")
+    context.toggleLoggedIn()
+  }
+  console.log(context.isLoggedIn)
   return (
   <Navbar  color="dark" dark>
 
@@ -25,7 +29,8 @@ const NavigationBar = () => {
   <li><Link to='/about'>About</Link></li>
   <li><a className="nav-link" href ="https://github.com/dean-the-dream" target="_blank" rel="noreferrer">GitHub</a></li>
   <li> 
-   {!context.isLoggedIn && <Button onClick={() => navigate("/login")}>Login</Button>}
+     {!context.isLoggedIn?<Button onClick={() => navigate("/login")}>Login</Button>:
+     <Button onClick={() => clickLogOut()}>Logout</Button>}
   </li>
 </ul>
     </Nav>

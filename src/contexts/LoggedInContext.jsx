@@ -6,7 +6,7 @@ const LoggedInContextProvider = (props) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     
     const toggleLoggedIn = () => {
-        setIsLoggedIn(isLoggedIn = !isLoggedIn)
+        setIsLoggedIn(!isLoggedIn)
     }
   
         return(
